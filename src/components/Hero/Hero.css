@@ -69,19 +69,20 @@
   display: flex;
   gap: 1rem;
   justify-content: center;
-  flex-wrap: wrap;
 }
 
 .btn {
   padding: 0.8rem 1.5rem;
-  border-radius: 0.5rem;
+  border-radius: 6px;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
+  text-align: center;
+  display: inline-block;
 }
 
 .btn-primary {
-  background-color: #4f46e5;
+  background-color: var(--primary-color);
   color: white;
 }
 
@@ -90,8 +91,8 @@
 }
 
 .btn-primary:hover {
+  background-color: var(--primary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(79, 70, 229, 0.3);
 }
 
 .dark-mode .btn-primary:hover {
@@ -99,8 +100,9 @@
 }
 
 .btn-secondary {
-  border: 2px solid #4f46e5;
-  color: #4f46e5;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  background-color: transparent;
 }
 
 .dark-mode .btn-secondary {
@@ -109,7 +111,7 @@
 }
 
 .btn-secondary:hover {
-  background-color: #4f46e5;
+  background-color: var(--primary-light);
   color: white;
   transform: translateY(-2px);
 }
@@ -136,6 +138,21 @@
   .btn {
     width: 100%;
     max-width: 250px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-buttons {
+    flex-direction: row; /* Garde les boutons sur la même ligne */
+    flex-wrap: wrap; /* Permet le passage à la ligne si espace insuffisant */
+  }
+  
+  .btn {
+    padding: 0.6rem 1.2rem; /* Taille réduite */
+    font-size: 0.9rem; /* Texte légèrement plus petit */
+    flex: 1; /* Les boutons prennent largeur égale */
+    min-width: 120px; /* Largeur minimale */
     text-align: center;
   }
 }
