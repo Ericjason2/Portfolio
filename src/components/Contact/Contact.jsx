@@ -1,12 +1,17 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 import emailjs from 'emailjs-com';
 import './Contact.css';
 
-export default function Contact() {
+export default function Contact({ setCursorVariant }) {
   const form = useRef();
+  const [isSending, setIsSending] = useState(false);
+  const [sendStatus, setSendStatus] = useState(null);
 
   const sendEmail = (e) => {
     e.preventDefault();
+    setIsSending(true);
+    setSendStatus(null);
 
     emailjs.sendForm(
       'service_dr8ukaf', // Service ID
@@ -18,38 +23,136 @@ export default function Contact() {
       }
     )
     .then((result) => {
-      alert('Message envoyé avec succès !');
+      setSendStatus('success');
       e.target.reset();
-    }, (error) => {
-      alert('Une erreur est survenue, veuillez réessayer.');
+    })
+    .catch((error) => {
+      setSendStatus('error');
+      console.error('Erreur EmailJS:', error);
+    })
+    .finally(() => {
+      setIsSending(false);
     });
   };
 
   return (
-    <section id="contact" className="contact">
+    <section id="contact" className="contact-section">
       <div className="container">
-        <h2 className="section-title">Contactez-moi</h2>
-        
-        <form ref={form} onSubmit={sendEmail} className="contact-form">
-          <div className="form-group">
-            <label>Nom</label>
-            <input type="text" name="from_name" required />
-          </div>
+        <motion.div
+          initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="section-header"
+        >
+          <span className="section-subtitle">Contact</span>
+          <h2 className="section-title">Travaillons ensemble</h2>
+        </motion.div>
+
+        <motion.form
+          ref={form}
+          onSubmit={sendEmail}
+          className="contact-form"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+        >
+          <motion.div 
+            className="form-group"
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+          >
+            <label htmlFor="name">Nom complet</label>
+            <input
+              type="text"
+              id="name"
+              name="from_name"
+              required
+              onMouseEnter={() => setCursorVariant('text')}
+              onMouseLeave={() => setCursorVariant('default')}
+            />
+          </motion.div>
           
-          <div className="form-group">
-            <label>Email</label>
-            <input type="email" name="reply_to" required />
-          </div>
+          <motion.div 
+            className="form-group"
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5 }}
+          >
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="reply_to"
+              required
+              onMouseEnter={() => setCursorVariant('text')}
+              onMouseLeave={() => setCursorVariant('default')}
+            />
+          </motion.div>
           
-          <div className="form-group">
-            <label>Message</label>
-            <textarea name="message" rows="5" required></textarea>
-          </div>
+          <motion.div 
+            className="form-group"
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.6 }}
+          >
+            <label htmlFor="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              onMouseEnter={() => setCursorVariant('text')}
+              onMouseLeave={() => setCursorVariant('default')}
+            ></textarea>
+          </motion.div>
           
-          <button type="submit" className="btn btn-primary">
-            Envoyer le message
-          </button>
-        </form>
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.7 }}
+          >
+            <button
+              type="submit"
+              className="submit-btn"
+              disabled={isSending}
+              onMouseEnter={() => setCursorVariant('clickable')}
+              onMouseLeave={() => setCursorVariant('default')}
+            >
+              {isSending ? (
+                <span>Envoi en cours...</span>
+              ) : (
+                <span>Envoyer le message</span>
+              )}
+            </button>
+
+            {sendStatus === 'success' && (
+              <motion.div
+                className="alert success"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                Message envoyé avec succès !
+              </motion.div>
+            )}
+
+            {sendStatus === 'error' && (
+              <motion.div
+                className="alert error"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                Une erreur est survenue. Veuillez réessayer.
+              </motion.div>
+            )}
+          </motion.div>
+        </motion.form>
       </div>
     </section>
   );

@@ -1,48 +1,51 @@
-import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import { Moon, Sun } from 'react-feather';
 import './Header.css';
 
-export default function Header({ darkMode, setDarkMode }) {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
+export default function Header({ darkMode, setDarkMode, setCursorVariant }) {
   return (
-    <header className={`header ${scrolled ? 'scrolled' : ''} ${mobileMenuOpen ? 'mobile-open' : ''}`}>
-      <div className="header-container">
-        <a href="Yo" className="logo">KOUTA Eric</a>
-        
-        <button 
-          className="mobile-menu-button"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? '✕' : '☰'}
-        </button>
-        
-        <nav className={`nav ${mobileMenuOpen ? 'open' : ''}`}>
-          <ul className="nav-list">
-            <li><a href="#about" onClick={() => setMobileMenuOpen(false)}>À propos</a></li>
-            <li><a href="#skills" onClick={() => setMobileMenuOpen(false)}>Compétences</a></li>
-            <li><a href="#projects" onClick={() => setMobileMenuOpen(false)}>Projets</a></li>
-            <li><a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact</a></li>
-            <li>
-              <button 
-                className="theme-toggle"
-                onClick={() => setDarkMode(!darkMode)}
-                aria-label={darkMode ? 'Activer le mode clair' : 'Activer le mode sombre'}
+    <motion.header
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="header"
+    >
+      <div className="container">
+        <nav>
+          <motion.a
+            href="#"
+            className="logo"
+            onMouseEnter={() => setCursorVariant('text')}
+            onMouseLeave={() => setCursorVariant('default')}
+          >
+            Portfolio.
+          </motion.a>
+          
+          <div className="nav-links">
+            {['À propos', 'Projets', 'Contact'].map((item, index) => (
+              <motion.a
+                key={index}
+                href={`#${item.toLowerCase().replace(' ', '-')}`}
+                onMouseEnter={() => setCursorVariant('text')}
+                onMouseLeave={() => setCursorVariant('default')}
+                whileHover={{ y: -2 }}
               >
-                {darkMode ? '☀️' : '🌙'}
-              </button>
-            </li>
-          </ul>
+                {item}
+              </motion.a>
+            ))}
+            
+            <motion.button
+              onClick={() => setDarkMode(!darkMode)}
+              onMouseEnter={() => setCursorVariant('clickable')}
+              onMouseLeave={() => setCursorVariant('default')}
+              whileTap={{ scale: 0.9 }}
+              aria-label="Toggle dark mode"
+            >
+              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+            </motion.button>
+          </div>
         </nav>
       </div>
-    </header>
+    </motion.header>
   );
 }
