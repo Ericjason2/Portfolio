@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# Portfolio Personnel - KOUTA ERIC
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Preview du Portfolio](lien-vers-une-image-ou-gif.gif)  
+*(Optionnel: Ajoutez une capture d'écran ou GIF animé du projet.)*
 
-## Available Scripts
+## 📌 **Description**
+Un portfolio moderne et responsive développé avec **React.js** pour présenter mes projets, compétences et me contacter. Déployé sur Vercel.  
 
-In the project directory, you can run:
+**Fonctionnalités clés** :
+- ✅ Sections About, Projets, Compétences, Contact  
+- ✅ Animations fluides Framer Motion  
+- ✅ Mode sombre/clair 
+- ✅ Formulaire de contact fonctionnel avec EmailJS  
 
-### `npm start`
+## 🛠 **Technologies**
+- **Frontend** : React.js, React Router, HTML5 
+- **Styling** : CSS Modules / Styled-Components  
+- **Animations** : Framer Motion  
+- **Déploiement** : Vercel  
+- **Autres** : EmailJS (formulaire), React Icons  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 **Installation**
+1. Clonez le dépôt :
+   ```bash
+   git clone https://github.com/Ericjason2/Portfolio.git
+   ```
+2. Installez les dépendances :
+   ```bash
+   cd my-portfolio
+   npm install
+   ```
+3. Lancez le projet en local :
+   ```bash
+   npm start
+   ```
+4. Ouvrez [http://localhost:3000](http://localhost:3000) dans votre navigateur.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🌟 **Personnalisation**
+- Modifiez les données dans le dossier `src/data/` (ex: `projects.jsx`, `skills.jsx`).  
+- Pour le formulaire de contact, configurez EmailJS (https://www.emailjs.com/).  
 
-### `npm test`
+## 🔗 **Liens**
+- **Lien du portfolio en ligne** : https://portfolio-chi-ten-noruh33vg0.vercel.app/
+- **Lien LinkedIn** : https://www.linkedin.com/in/eric-kouta-246a62280/ 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📄 **License**
+Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
 
-### `npm run build`
+---
+✨ **Crée avec ❤️ par KOUTA Eric**  
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### **Conseils pour le README** :
+1. **Ajoutez des badges** (ex: ![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react)) en haut pour les technologies.  
+   *Générateur* : [shields.io](https://shields.io)  
+2. **Incluez un GIF** ou screenshot (utilisez [Recordit](https://recordit.co/) ou [ScreenToGif](https://www.screentogif.com/)).  
+3. **Mettez en avant** une fonctionnalité technique complexe que vous avez implémentée (ex: "Animation 3D avec Three.js").  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Besoin d’aide pour adapter ce README à votre cas précis ? Dites-moi ce que vous souhaitez mettre en avant ! 😊
