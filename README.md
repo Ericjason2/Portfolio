@@ -49,11 +49,3 @@ Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de 
 ---
 ✨ **Crée avec ❤️ par KOUTA Eric**  
 ```
-
-### **Conseils pour le README** :
-1. **Ajoutez des badges** (ex: ![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react)) en haut pour les technologies.  
-   *Générateur* : [shields.io](https://shields.io)  
-2. **Incluez un GIF** ou screenshot (utilisez [Recordit](https://recordit.co/) ou [ScreenToGif](https://www.screentogif.com/)).  
-3. **Mettez en avant** une fonctionnalité technique complexe que vous avez implémentée (ex: "Animation 3D avec Three.js").  
-
-Besoin d’aide pour adapter ce README à votre cas précis ? Dites-moi ce que vous souhaitez mettre en avant ! 😊
